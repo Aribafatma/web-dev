@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Elevenlabs | Signup</title>
+        <link href="./index.css" rel="stylesheet">
+        <style>
+            body {
+                font-family: "Roboto", sans-serif;
+                font-weight: 800;
+                background: black;
+                color: white;
+                padding: 0;
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="min-height: 100vh; display: flex; flex-direction: column;">
+            <div>
+                header
+            </div>
+            <div style="flex: 1; background-color: red; display: flex; justify-content: center; align-items: center; height: 100%; background-color: green;">
+                <span style="border: 1px solid black; padding: 20;">
+                    Create an account
+                    <div style="height: 1px; background-color: black; margin-top: 10;">
+
+                    </div>
+                    <input type="text" style="border: 1px solid gray; padding: 10; margin: 10; border-radius: 10px;" />
+                </span>
+            </div>
+            <div>
+                footer
+            </div>
+        </div>
+    </body>
+</html>
