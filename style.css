@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f7fb;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-weight: bold;
+    color: #0a2a66;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search input {
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.profile {
+    width: 35px;
+    height: 35px;
+    background: #0a2a66;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.badge {
+    background: #e6f0ff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    color: #0a2a66;
+    margin-bottom: 15px;
+}
+
+.desc {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.buttons .btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btn.light {
+    background: #eee;
+}
+
+.btn.dark {
+    background: #0a2a66;
+    color: white;
+}
+
+/* Image */
+.hero-image img {
+    width: 300px;
+    border-radius: 20px;
+}
+
+/* Stats */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 80px;
+    background: #0a2a66;
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+}
+
+.card {
+    text-align: center;
+}
+
+.card h2 {
+    font-size: 28px;
+}
