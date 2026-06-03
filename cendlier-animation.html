@@ -1,0 +1,100 @@
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 100vh;
+        }
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #191919;
+        }
+        c {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c"></canvas>
+    <script defer>
+        const c = document.getElementById('c');
+        const ctx = c.getContext('2d');
+        let p = [];
+        let pc = 500;
+        let m = { x: null, y: null };
+        function resize() {
+            c.width = window.innerWidth;
+            c.height = window.innerHeight;
+            p.length = 0;
+            init();
+        }
+        class Particle {
+            constructor(ax) {
+                this.ax = ax;
+                this.ay = 0;
+                this.x = ax;
+                this.y = Math.random() * (c.height / 2) + 50;
+                this.baseY = this.y;
+                this.r = Math.random() * 3 + 2;
+                this.o = Math.random() * 0.5 + 0.5;
+                this.swing = Math.random() * 0.1 + 0.05;
+            }
+            update() {
+                const dx = m.x - this.x;
+                const dy = m.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 150) {
+                    this.x += dx * 0.03;
+                    this.y += dy * 0.03;
+                } else {
+                    this.x += (this.ax - this.x) * this.swing;
+                    this.y += (this.baseY - this.y) * this.swing;
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.moveTo(this.ax, this.ay);
+                ctx.lineTo(this.x, this.y);
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = `rgba(255, 215, 0, 0.3)`;
+                ctx.stroke();
+                ctx.closePath();
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255,255,255,${this.o})`;
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+        function init() {
+            for (let i = 0; i < pc; i++) {
+                const ax = Math.random() * c.width;
+                p.push(new Particle(ax));
+            }
+        }
+        function animate() {
+            ctx.clearRect(0, 0, c.width, c.height);
+            p.forEach((particle) => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        window.addEventListener('mousemove', function (e) {
+            m.x = e.clientX;
+            m.y = e.clientY;
+        });
+        window.addEventListener('resize', resize);
+        window.addEventListener('load', resize);
+        animate();
+    </script>
+</body>
+</html>
